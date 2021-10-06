@@ -1,2 +1,3 @@
-export const ToDoItem = () => {
-} 
+export const ToDoItem = (props) => {
+  return <li>{props.name}</li>;
+};
