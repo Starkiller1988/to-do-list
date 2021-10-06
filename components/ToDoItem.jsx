@@ -1,10 +1,10 @@
 import { useState } from "react";
 import "./ToDoItem.css";
-import herberttwo from "../src/media/dont-make-me-beg.mp3";
-import herbertone from "../src/media/herbert_ymca.mp3";
+import herberttwo from "../src/media/one.mp3";
+import herbertone from "../src/media/takeoff.mp3";
 
 export const ToDoItem = ({ name }) => {
-  r;
+  ;
   const [isDone, setIsDone] = useState(false);
   const doneClick = () => {
     setIsDone(!isDone);
