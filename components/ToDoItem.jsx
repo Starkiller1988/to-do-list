@@ -1,4 +1,5 @@
-import "./";
+import { useState } from "react";
+import "./ToDoItem.css";
 
 export const ToDoItem = ({ name }) => {
   const [isDone, setIsDone] = useState(false);
