@@ -3,7 +3,7 @@ import "./ToDoItem.css";
 import herberttwo from "../src/media/one.mp3";
 import herbertone from "../src/media/takeoff.mp3";
 
-export const ToDoItem = ({ name }) => {
+export const TodoItem = ({ name }) => {
   ;
   const [isDone, setIsDone] = useState(false);
   const doneClick = () => {
@@ -18,3 +18,4 @@ export const ToDoItem = ({ name }) => {
     </li>
   );
 };
+

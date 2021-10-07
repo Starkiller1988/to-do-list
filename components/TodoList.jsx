@@ -1,12 +1,39 @@
-import { ToDoItem } from "./ToDoItem";
+import { useEffect, useState } from "react";
+import { getItem, setItem } from "../utils/localStorage";
+import { CreateTodo } from "./CreateTodo";
+import { TodoItem } from "./ToDoItem";
 
-export const ToDoList = () => {
+export const TodoList = () => {
+  const [todos, setTodos] = useState(
+    getItem("todos", [
+      { id: 0, name: "Learn about components" },
+      { id: 1, name: "Learn about props" },
+      { id: 2, name: "Learn about state" },
+    ])
+  );
+
+  useEffect(() => {
+    setItem("todos", todos);
+  }, [todos]);
+
   return (
-    <ul>
-      <ToDoItem name="Aufräumen" />
-      <ToDoItem name="Coden üben" />
-      <ToDoItem name="Sport machen" />
-      <ToDoItem name="Essen kochen" />
-    </ul>
+    <>
+      <ul>
+        {todos.map(({ id, name }) => (
+          <TodoItem key={id} name={name} />
+        ))}
+      </ul>
+      <CreateTodo
+        onCreate={(name) => {
+          setTodos([
+            ...todos,
+            {
+              id: todos.length, // or todos.length
+              name,
+            },
+          ]);
+        }}
+      />
+    </>
   );
 };

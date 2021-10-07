@@ -1,7 +1,7 @@
 import { useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import { ToDoList } from "../components/TodoList";
+import { TodoList } from "../components/TodoList";
 
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
     <h1>Hello</h1>
-    <ToDoList />
+    <TodoList />
     </div>
   );
 }
