@@ -9,3 +9,4 @@ export const getItem = (key, defaultValue) => {
     setItem(key, defaultValue);
     return defaultValue;
 };
+
