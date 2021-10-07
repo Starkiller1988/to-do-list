@@ -3,18 +3,22 @@ import { getItem, setItem } from "../utils/localStorage";
 import { CreateTodo } from "./CreateTodo";
 import { TodoItem } from "./ToDoItem";
 
-export const TodoList = () => {
-  const [todos, setTodos] = useState(
-    getItem("todos", [
-      { id: 0, name: "Learn about components" },
-      { id: 1, name: "Learn about props" },
-      { id: 2, name: "Learn about state" },
-    ])
-  );
+const useLocalStorageState = (key, defaultValue) => {
+  const [state, setState] = useState(getItem(key, defaultValue));
 
   useEffect(() => {
-    setItem("todos", todos);
-  }, [todos]);
+    setItem(key, state);
+  }, [state]);
+
+  return [state, setState];
+};
+
+export const TodoList = () => {
+  const [todos, setTodos] = useLocalStorageState("todos", [
+    { id: 0, name: "Learn about components" },
+    { id: 1, name: "Learn about props" },
+    { id: 2, name: "Learn about state" },
+  ]);
 
   return (
     <>
